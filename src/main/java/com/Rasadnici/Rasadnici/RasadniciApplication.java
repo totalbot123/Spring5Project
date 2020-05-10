@@ -9,5 +9,5 @@ public class RasadniciApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RasadniciApplication.class, args);
 	}
-
+	
 }
