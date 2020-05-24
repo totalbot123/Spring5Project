@@ -16,13 +16,18 @@ public class RegisterController {
 		this.userRepository = userRepository;
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@RequestMapping(value = "/registerFarmer", method = RequestMethod.GET)
+	public ModelAndView getRegisterFarmer() {
+		return new ModelAndView("/registerFarmer.html");
+	}
+	
+	@RequestMapping(value = "/registerCompany", method = RequestMethod.GET)
 	public ModelAndView getRegister() {
-		return new ModelAndView("/register.html");
+		return new ModelAndView("/registerCompany.html");
 	}
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public void postRegister() {
-		
+	public ModelAndView postRegister() {
+		return new ModelAndView("/register.html");
 	}
 }

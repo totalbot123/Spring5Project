@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+<link href="../static/css/custom.css" rel="stylesheet"
+	th:href="@{/css/custom.css}" />
+<title>Register</title>
+</head>
+<body>
+	<div class="d-flex justify-content-center">
+		<div class="p-2">
+			<form action="#" th:action="@{/register}" method="post">
+				<div class="form-group">
+					<label for="username">Company Name</label> <input type="text"
+						class="form-control" id="name" placeholder="Name">
+				</div>
+				<div class="form-group">
+					<label for="username">Company Abbreviation</label> <input type="text"
+						class="form-control" id="username" placeholder="Username">
+				</div>
+				<div class="form-group">
+					<label for="password">Password</label> <input type="password"
+						class="form-control" id="password" placeholder="Password">
+				</div>
+				<div class="form-group">
+					<label for="password">Confirm Password</label> <input type="password"
+						class="form-control" id="confirm_password" placeholder="Confirm Password">
+				</div>
+				<div class="form-group">
+					<label for="username">Established Date</label> <input type="text"
+						class="form-control" id="date_of_birth" placeholder="Date">
+				</div>
+				<div class="form-group">
+					<label for="username">Established Place</label> <input type="text"
+						class="form-control" id="place_of_birth" placeholder="Date">
+				</div>
+				<div class="form-group">
+					<label for="email">Email address</label> <input
+						type="email" class="form-control" id="email"
+						aria-describedby="emailHelp" placeholder="Enter email">
+				</div>
+				<button type="submit" class="btn btn-primary">Register</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

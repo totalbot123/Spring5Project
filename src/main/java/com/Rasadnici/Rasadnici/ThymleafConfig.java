@@ -1,42 +1,60 @@
-//package com.Rasadnici.Rasadnici;
-//
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.context.ApplicationContext;
-//import org.springframework.context.annotation.Bean;
-//import org.springframework.context.annotation.Configuration;
-//import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-//import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-//import org.thymeleaf.spring5.SpringTemplateEngine;
-//import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
-//import org.thymeleaf.spring5.view.ThymeleafViewResolver;
-//
-//@Configuration
-//public class ThymleafConfig implements WebMvcConfigurer {
-//
-//	@Autowired
-//	private ApplicationContext applicationContext;
-//	
-//	@Bean
-//	public SpringResourceTemplateResolver templateResolver() {
-//		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
-//		templateResolver.setApplicationContext(applicationContext);
-////		templateResolver.setPrefix("/templates/");
-//		templateResolver.setSuffix(".html");
-//		return templateResolver;
-//	}
-//
-//	@Bean
-//	public SpringTemplateEngine templateEngine() {
-//		SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-//		templateEngine.setTemplateResolver(templateResolver());
-//		templateEngine.setEnableSpringELCompiler(true);
-//		return templateEngine;
-//	}
-//
-//	@Override
-//	public void configureViewResolvers(ViewResolverRegistry registry) {
-//		ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-//		resolver.setTemplateEngine(templateEngine());
-//		registry.viewResolver(resolver);
-//	}
-//}
+package com.Rasadnici.Rasadnici;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Description;
+import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.thymeleaf.spring5.SpringTemplateEngine;
+import org.thymeleaf.spring5.view.ThymeleafViewResolver;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+
+import nz.net.ultraq.thymeleaf.LayoutDialect;
+
+@Configuration
+public class ThymleafConfig implements WebMvcConfigurer {
+
+    @Bean
+    @Description("Thymeleaf template resolver serving HTML 5")
+    public ClassLoaderTemplateResolver templateResolver() {
+
+    	ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+
+        templateResolver.setPrefix("templates/");
+        templateResolver.setCacheable(false);
+        templateResolver.setSuffix(".html");
+        templateResolver.setTemplateMode("HTML5");
+        templateResolver.setCharacterEncoding("UTF-8");
+
+        return templateResolver;
+    }
+
+    @Bean
+    @Description("Thymeleaf template engine with Spring integration")
+    public SpringTemplateEngine templateEngine() {
+
+    	SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        templateEngine.addDialect(new LayoutDialect());
+
+        return templateEngine;
+    }
+
+    @Bean
+    @Description("Thymeleaf view resolver")
+    public ViewResolver viewResolver() {
+
+    	ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+
+        viewResolver.setTemplateEngine(templateEngine());
+        viewResolver.setCharacterEncoding("UTF-8");
+
+        return viewResolver;
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("index");
+    }
+}
