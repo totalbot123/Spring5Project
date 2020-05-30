@@ -12,43 +12,43 @@
 <body>
 	<div class="d-flex justify-content-center">
 		<div class="p-2">
-			<form action="#" th:action="@{/register}" method="post">
+			<form th:action="@{/registerFarmer}" th:object="${farmer}" method="post">
 				<div class="form-group">
 					<label for="username">Name</label> <input type="text"
-						class="form-control" id="name" placeholder="Name">
+						class="form-control" id="name" th:field="*{firstName}" placeholder="Name">
 				</div>
 				<div class="form-group">
 					<label for="username">Last Name</label> <input type="text"
-						class="form-control" id="last_name" placeholder="Last Name">
+						class="form-control" id="last_name" th:field="*{lastName}" placeholder="Last Name">
 				</div>
 				<div class="form-group">
 					<label for="username">Username</label> <input type="text"
-						class="form-control" id="username" placeholder="Username">
+						class="form-control" id="username" th:field="*{username}" placeholder="Username">
 				</div>
 				<div class="form-group">
 					<label for="password">Password</label> <input type="password"
-						class="form-control" id="password" placeholder="Password">
+						class="form-control" id="password" th:field="*{password}" placeholder="Password">
 				</div>
 				<div class="form-group">
 					<label for="password">Confirm Password</label> <input type="password"
-						class="form-control" id="confirm_password" placeholder="Confirm Password">
+						class="form-control" id="confirm_password"  th:field="*{confirm_password}" placeholder="Confirm Password">
 				</div>
 				<div class="form-group">
 					<label for="username">Date of Birth</label> <input type="text"
-						class="form-control" id="date_of_birth" placeholder="Date">
+						class="form-control" id="date_of_birth" th:field="*{dateOfBirth}" placeholder="Date">
 				</div>
 				<div class="form-group">
 					<label for="username">Place of Birth</label> <input type="text"
-						class="form-control" id="place_of_birth" placeholder="Date">
+						class="form-control" id="place_of_birth" th:field="*{placeOfBirth}" placeholder="Date">
 				</div>
 				<div class="form-group">
 					<label for="username">Phone</label> <input type="text"
-						class="form-control" id="phone" placeholder="Phone">
+						class="form-control" id="phone" th:field="*{phoneNumber}" placeholder="Phone">
 				</div>
 				<div class="form-group">
 					<label for="email">Email address</label> <input
 						type="email" class="form-control" id="email"
-						aria-describedby="emailHelp" placeholder="Enter email">
+						th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">
 				</div>
 				<button type="submit" class="btn btn-primary">Register</button>
 			</form>

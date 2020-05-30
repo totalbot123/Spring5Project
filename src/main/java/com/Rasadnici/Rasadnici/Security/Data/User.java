@@ -1,5 +1,7 @@
 package com.Rasadnici.Rasadnici.Security.Data;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,16 +13,18 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private String username;
+	String username;
 	
-	private String password;
+	String password;
 
-	private String email;
+	String confirm_password;
+
+	String email;
 	
 }
