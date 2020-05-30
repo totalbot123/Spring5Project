@@ -3,17 +3,20 @@ package com.Rasadnici.Rasadnici.Security.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.Rasadnici.Rasadnici.Security.DAO.UserRepository;
+import com.Rasadnici.Rasadnici.Security.Data.Company;
+import com.Rasadnici.Rasadnici.Security.Data.Farmer;
+import com.Rasadnici.Rasadnici.Security.Service.UserService;
 
 @Controller
 public class RegisterController {
 	
-	private UserRepository userRepository;
+	private UserService userService;
 	
-	public RegisterController(UserRepository userRepository) {
-		this.userRepository = userRepository;
+	public RegisterController(UserService userService) {
+		this.userService = userService;
 	}
 
 	@RequestMapping(value = "/registerFarmer", method = RequestMethod.GET)
@@ -22,12 +25,17 @@ public class RegisterController {
 	}
 	
 	@RequestMapping(value = "/registerCompany", method = RequestMethod.GET)
-	public ModelAndView getRegister() {
+	public ModelAndView getRegisterCompany() {
 		return new ModelAndView("/registerCompany.html");
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView postRegister() {
-		return new ModelAndView("/register.html");
+	@RequestMapping(value = "/registerFarmer", method = RequestMethod.POST)
+	public void postRegisterFarmer(@RequestParam(name = "farmer") Farmer farmer) {
+		
+	}
+	
+	@RequestMapping(value = "/registerCompany", method = RequestMethod.POST)
+	public void postRegisterCompany(@RequestParam(name = "company") Company company) {
+
 	}
 }
