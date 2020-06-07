@@ -1,7 +1,6 @@
 package com.Rasadnici.Rasadnici.Security.Service;
 
 import com.Rasadnici.Rasadnici.Security.DAO.UserRepository;
-import com.Rasadnici.Rasadnici.Security.Data.Farmer;
 import com.Rasadnici.Rasadnici.Security.Data.User;
 
 import org.springframework.stereotype.Service;
