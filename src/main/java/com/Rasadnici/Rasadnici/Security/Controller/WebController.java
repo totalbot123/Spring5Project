@@ -13,6 +13,11 @@ public class WebController {
 		return new ModelAndView("/login.html");
 	}
 
+	@RequestMapping("/index")
+	public ModelAndView getIndex() {
+		return new ModelAndView("/index.html");
+	}
+
 	@RequestMapping(value = "/homepage", method = RequestMethod.POST)
 	public ModelAndView postHomepage() {
 		return new ModelAndView("/homepage.html");
