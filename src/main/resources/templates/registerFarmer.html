@@ -1,86 +1,90 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{loginLayout}">
 
-<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<link href="../static/css/bootstrap.css" rel="stylesheet"
-	th:href="@{/css/bootstrap.css}" />
-
-<title>Register</title>
+	<title>Welcome to Our Site</title>
+	<link href="../static/css/bootstrap.css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 </head>
+
 <body>
-	<div class="d-flex justify-content-center">
-		<div class="p-2">
-			<form th:action="@{/registerFarmer}" th:object="${farmer}" method="post">
-				<div class="form-group">
-					<label for="username">Name</label> <input type="text"
-						class="form-control" id="name" th:field="*{firstName}" placeholder="Name">
+	<div layout:fragment="content">
+		<section class="mt-6">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="p-2">
+						<form th:action="@{/registerFarmer}" class="form-horizontal" th:object="${farmer}"
+							method="post">
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="name" th:field="*{firstName}"
+										placeholder="Name">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Last Name</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="last_name" th:field="*{lastName}"
+										placeholder="Last Name">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Username</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="username" th:field="*{username}"
+										placeholder="Username">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="password" class="col-sm-4 col-form-label">Password</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="password" th:field="*{password}"
+										placeholder="Password">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="password" class="col-sm-4 col-form-label">Confirm Password</label>
+								<div class="col-sm-8">
+									<input type="password" class="form-control" id="confirm_password"
+										th:field="*{confirm_password}" placeholder="Confirm Password">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Date of Birth</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="date_of_birth" th:field="*{dateOfBirth}"
+										placeholder="Date">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Place of Birth</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="place_of_birth"
+										th:field="*{placeOfBirth}" placeholder="Date">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="username" class="col-sm-4 col-form-label">Phone</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="phone" th:field="*{phoneNumber}"
+										placeholder="Phone">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="email" class="col-sm-4 col-form-label">Email address</label>
+								<div class="col-sm-8">
+									<input type="email" class="form-control" id="email" th:field="*{email}"
+										aria-describedby="emailHelp" placeholder="Enter email">
+								</div>
+							</div>
+							<button type="submit" class="btn btn-primary">Register</button>
+						</form>
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="username">Last Name</label> <input type="text"
-						class="form-control" id="last_name" th:field="*{lastName}" placeholder="Last Name">
-				</div>
-				<div class="form-group">
-					<label for="username">Username</label> <input type="text"
-						class="form-control" id="username" th:field="*{username}" placeholder="Username">
-				</div>
-				<div class="form-group">
-					<label for="password">Password</label> <input type="password"
-						class="form-control" id="password" th:field="*{password}" placeholder="Password">
-				</div>
-				<div class="form-group">
-					<label for="password">Confirm Password</label> <input type="password"
-						class="form-control" id="confirm_password"  th:field="*{confirm_password}" placeholder="Confirm Password">
-				</div>
-				<div class="form-group">
-					<label for="username">Date of Birth</label> <input type="text"
-						class="form-control" id="date_of_birth" th:field="*{dateOfBirth}" placeholder="Date">
-				</div>
-				<div class="form-group">
-					<label for="username">Place of Birth</label> <input type="text"
-						class="form-control" id="place_of_birth" th:field="*{placeOfBirth}" placeholder="Date">
-				</div>
-				<div class="form-group">
-					<label for="username">Phone</label> <input type="text"
-						class="form-control" id="phone" th:field="*{phoneNumber}" placeholder="Phone">
-				</div>
-				<div class="form-group">
-					<label for="email">Email address</label> <input
-						type="email" class="form-control" id="email"
-						th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">
-				</div>
-				<button type="submit" class="btn btn-primary">Register</button>
-			</form>
-		</div>
+			</div>
+		</section>
 	</div>
 </body>
-</html> -->
 
-<<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout}">
-<head>
-    <title>Welcome to Our Site</title>
-</head>
-<body>
-
-<div layout:fragment="content">
-    <section class="my-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Welcome to Our Site</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-</body>
 </html>
