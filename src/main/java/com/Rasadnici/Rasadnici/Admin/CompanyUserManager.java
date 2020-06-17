@@ -6,6 +6,6 @@ public interface CompanyUserManager {
 
     public void addCompany(Company farmer);
 
-    public void modifyCompany(String id, Company farmer);
+    public void modifyCompany(Long id, Company farmer);
 
 }

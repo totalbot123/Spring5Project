@@ -1,8 +1,8 @@
 package com.Rasadnici.Rasadnici.Admin;
 
 public interface UserApporvable {
-    
-    public void approveUserRegistration(String id);
 
-    public void declineUserRegistration(String id);
+    public void approveUserRegistration(Long id);
+
+    public void declineUserRegistration(Long id);
 }

@@ -6,6 +6,6 @@ public interface FarmerUserManager {
 
     public void addFarmer(Farmer farmer);
 
-    public void modifyFarmer(String id, Farmer farmer);
+    public void modifyFarmer(Long id, Farmer farmer);
 
 }

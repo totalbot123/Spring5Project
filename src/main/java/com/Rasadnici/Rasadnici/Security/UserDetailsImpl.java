@@ -14,11 +14,11 @@ import com.Rasadnici.Rasadnici.Security.DAO.UserRepository;
 import com.Rasadnici.Rasadnici.Security.Data.User;
 
 public class UserDetailsImpl implements UserDetails {
-	
+
 	private UserRepository userRepository;
-	
+
 	private String username;
-	
+
 	public UserDetailsImpl(UserRepository userRepository, String username) {
 		this.userRepository = userRepository;
 		this.username = username;
@@ -26,7 +26,7 @@ public class UserDetailsImpl implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		LinkedList<GrantedAuthority> authorities =  new LinkedList<GrantedAuthority>();
+		LinkedList<GrantedAuthority> authorities = new LinkedList<GrantedAuthority>();
 		authorities.push(new SimpleGrantedAuthority("USER"));
 		return authorities;
 	}
@@ -61,12 +61,10 @@ public class UserDetailsImpl implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
-
 
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/admin")
-public class AdminController implements UserApporvable, FarmerUserManager, CompanyUserManager, GeneralUserManager{
+public class AdminController implements UserApporvable, FarmerUserManager, CompanyUserManager, GeneralUserManager {
 
     private UserService userService;
 
@@ -21,12 +21,12 @@ public class AdminController implements UserApporvable, FarmerUserManager, Compa
     }
 
     @RequestMapping(value = "/approveRegistration/{id}", method = RequestMethod.PUT)
-    public void approveUserRegistration(@PathVariable("id") String id) {
+    public void approveUserRegistration(@PathVariable("id") Long id) {
         userService.approveUser(id);
     }
 
     @RequestMapping(value = "/delineRegistration/{id}", method = RequestMethod.DELETE)
-    public void declineUserRegistration(@PathVariable("id") String id) {
+    public void declineUserRegistration(@PathVariable("id") Long id) {
         userService.declineUser(id);
     }
 
@@ -41,17 +41,17 @@ public class AdminController implements UserApporvable, FarmerUserManager, Compa
     }
 
     @RequestMapping(value = "/modifyFarmer/{id}", method = RequestMethod.PUT)
-    public void modifyFarmer(@PathVariable("id") String id, @ModelAttribute("farmer") Farmer farmer) {
+    public void modifyFarmer(@PathVariable("id") Long id, @ModelAttribute("farmer") Farmer farmer) {
         userService.updateUser(id, farmer);
     }
 
     @RequestMapping(value = "/modifyCompany/{id}", method = RequestMethod.PUT)
-    public void modifyCompany(@PathVariable("id") String id, @ModelAttribute("company") Company company) {
+    public void modifyCompany(@PathVariable("id") Long id, @ModelAttribute("company") Company company) {
         userService.updateUser(id, company);
     }
 
     @RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.DELETE)
-    public void deleteUser(@PathVariable("id") String id) {
+    public void deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
     }
 
