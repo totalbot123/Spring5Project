@@ -1,31 +1,28 @@
 package com.Rasadnici.Rasadnici.Security.Data;
 
 import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import com.Rasadnici.Rasadnici.BaseEntity;
 
 import lombok.Data;
 
 @Data
-@MappedSuperclass
+@Entity
+@Table(name = "user")
 public class User extends BaseEntity {
 
-	String username;
+	private String username;
 
-	String password;
+	private String password;
 
-	String confirm_password;
+	@Column(name = "confirm_password")
+	private String confirmPassword;
 
-	String email;
+	private String email;
 
-	@Column(columnDefinition = "boolean default false")
-	@NotNull
-	Boolean active;
-
-	public Object thenReturn(Object object) {
-		return null;
-	}
+	@Column(columnDefinition = "tinyint(1) default 0")
+	private Boolean active;
 
 }

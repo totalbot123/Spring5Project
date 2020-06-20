@@ -18,12 +18,12 @@ import lombok.EqualsAndHashCode;
 @Table(name = "company")
 public class Company extends User {
 
-    private String title;
+    private String abbreviation;
 
     private String established;
 
     private String location;
 
-    @OneToMany(mappedBy = "cart")
+    @OneToMany(mappedBy = "company")
     private Set<Driver> drivers;
 }

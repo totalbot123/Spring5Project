@@ -31,7 +31,7 @@ class RasadnikUserServiceTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
 
-        rasadnikUserService = new RasadnikUserService(userRepository);
+        rasadnikUserService = new RasadnikUserService(userRepository, null);
     }
 
     @Test
