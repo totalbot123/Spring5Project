@@ -16,13 +16,13 @@ import lombok.Data;
 @Entity
 @Table(name = "user")
 public class User implements Serializable {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	String username;
-	
+
 	String password;
 
 	String confirm_password;
@@ -32,5 +32,9 @@ public class User implements Serializable {
 	@Column(columnDefinition = "boolean default false")
 	@NotNull
 	Boolean active;
-	
+
+	public Object thenReturn(Object object) {
+		return null;
+	}
+
 }

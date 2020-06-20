@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici.Admin;
+package com.Rasadnici.Rasadnici.Admin.AdminController;
 
 import com.Rasadnici.Rasadnici.Security.Data.Company;
 

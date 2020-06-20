@@ -1,13 +1,14 @@
 package com.Rasadnici.Rasadnici;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+import org.junit.jupiter.api.Test;
+
 class RasadniciApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void test() {
+		assertEquals(1, 1);
 	}
 
 }

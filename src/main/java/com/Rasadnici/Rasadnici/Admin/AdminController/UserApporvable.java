@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici.Admin;
+package com.Rasadnici.Rasadnici.Admin.AdminController;
 
 public interface UserApporvable {
 

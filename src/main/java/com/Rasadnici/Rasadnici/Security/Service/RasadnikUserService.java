@@ -1,5 +1,7 @@
 package com.Rasadnici.Rasadnici.Security.Service;
 
+import java.util.Optional;
+
 import com.Rasadnici.Rasadnici.Security.DAO.UserRepository;
 import com.Rasadnici.Rasadnici.Security.Data.User;
 
@@ -16,6 +18,11 @@ public class RasadnikUserService implements UserService {
 
     public User findUser(String username) {
         return userRepository.findByUsername(username);
+    }
+
+    public Optional<User> findUserById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        return user;
     }
 
     public void saveUser(User user) {
@@ -35,11 +42,11 @@ public class RasadnikUserService implements UserService {
     }
 
     public void declineUser(Long id) {
-        setUserStatus(id, false);
+        userRepository.deleteById(id);
     }
 
     private void setUserStatus(Long id, boolean status) {
-        User user = userRepository.findById(id).get();
+        User user = findUserById(id).get();
         user.setActive(status);
         userRepository.save(user);
     }
