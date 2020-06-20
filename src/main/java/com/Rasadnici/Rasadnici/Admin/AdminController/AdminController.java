@@ -1,6 +1,6 @@
 package com.Rasadnici.Rasadnici.Admin.AdminController;
 
-import com.Rasadnici.Rasadnici.Security.Data.Company;
+import com.Rasadnici.Rasadnici.Company.CompanyData.Company;
 import com.Rasadnici.Rasadnici.Security.Data.Farmer;
 import com.Rasadnici.Rasadnici.Security.Service.UserService;
 
