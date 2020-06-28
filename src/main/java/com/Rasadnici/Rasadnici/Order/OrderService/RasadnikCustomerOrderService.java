@@ -3,7 +3,7 @@ package com.Rasadnici.Rasadnici.Order.OrderService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RasadnikOrderService implements OrderService {
+public class RasadnikCustomerOrderService implements CustomerOrderService {
 
     @Override
     public void approveOrder() {

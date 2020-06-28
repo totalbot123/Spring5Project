@@ -2,6 +2,9 @@ package com.Rasadnici.Rasadnici.Security.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+
+import com.Rasadnici.Rasadnici.Order.OrderData.CustomerOrder;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,4 +25,7 @@ public class Farmer extends User {
     private String placeOfBirth;
 
     private String phoneNumber;
+
+    @OneToOne(mappedBy = "farmer")
+    private CustomerOrder customerOrder;
 }

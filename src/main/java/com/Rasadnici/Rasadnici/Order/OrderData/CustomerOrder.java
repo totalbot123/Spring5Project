@@ -2,12 +2,17 @@ package com.Rasadnici.Rasadnici.Order.OrderData;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.Rasadnici.Rasadnici.BaseEntity;
+import com.Rasadnici.Rasadnici.Company.CompanyData.Company;
+import com.Rasadnici.Rasadnici.Security.Data.Farmer;
 
 import lombok.Data;
 
@@ -35,5 +40,13 @@ public class CustomerOrder extends BaseEntity {
 
     @OneToMany(mappedBy = "order")
     private Set<Item> items;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "farmer_id", referencedColumnName = "id")
+    private Farmer farmer;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
+    private Company company;
 
 }
