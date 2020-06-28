@@ -42,11 +42,11 @@ public class CustomerOrder extends BaseEntity {
     private Set<Item> items;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "farmer_id", referencedColumnName = "id")
+    @JoinColumn(name = "farmer_id", referencedColumnName = "id", nullable = false)
     private Farmer farmer;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "company_id", referencedColumnName = "id")
+    @JoinColumn(name = "company_id", referencedColumnName = "id", nullable = false)
     private Company company;
 
 }

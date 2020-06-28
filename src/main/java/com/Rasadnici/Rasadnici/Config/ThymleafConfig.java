@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici;
+package com.Rasadnici.Rasadnici.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class ThymleafConfig implements WebMvcConfigurer {
     @Description("Thymeleaf template resolver serving HTML 5")
     public ClassLoaderTemplateResolver templateResolver() {
 
-    	ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+        ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
 
         templateResolver.setPrefix("templates/");
         templateResolver.setCacheable(false);
@@ -34,7 +34,7 @@ public class ThymleafConfig implements WebMvcConfigurer {
     @Description("Thymeleaf template engine with Spring integration")
     public SpringTemplateEngine templateEngine() {
 
-    	SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
         templateEngine.addDialect(new LayoutDialect());
 
@@ -45,7 +45,7 @@ public class ThymleafConfig implements WebMvcConfigurer {
     @Description("Thymeleaf view resolver")
     public ViewResolver viewResolver() {
 
-    	ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 
         viewResolver.setTemplateEngine(templateEngine());
         viewResolver.setCharacterEncoding("UTF-8");

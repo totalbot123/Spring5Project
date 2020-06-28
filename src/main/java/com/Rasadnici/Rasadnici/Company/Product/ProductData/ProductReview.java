@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici.Product.ProductData;
+package com.Rasadnici.Rasadnici.Company.Product.ProductData;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

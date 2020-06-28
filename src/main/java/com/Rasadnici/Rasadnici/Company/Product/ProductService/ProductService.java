@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici.Product.ProductService;
+package com.Rasadnici.Rasadnici.Company.Product.ProductService;
 
 import org.springframework.stereotype.Service;
 

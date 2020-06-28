@@ -1,4 +1,4 @@
-package com.Rasadnici.Rasadnici;
+package com.Rasadnici.Rasadnici.Config;
 
 import com.Rasadnici.Rasadnici.Company.Driver.DriverData.Driver;
 import com.Rasadnici.Rasadnici.Company.DriverScheduler.CompanyDriverScheduler;
