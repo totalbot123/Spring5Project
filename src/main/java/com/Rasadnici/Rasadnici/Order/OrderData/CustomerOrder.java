@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import com.Rasadnici.Rasadnici.BaseEntity;
 import com.Rasadnici.Rasadnici.Company.CompanyData.Company;
+import com.Rasadnici.Rasadnici.Item.ItemData.Item;
 import com.Rasadnici.Rasadnici.Security.Data.Farmer;
 
 import lombok.Data;

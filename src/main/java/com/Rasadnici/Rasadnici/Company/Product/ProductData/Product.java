@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.Rasadnici.Rasadnici.BaseEntity;
-import com.Rasadnici.Rasadnici.Order.OrderData.Item;
+import com.Rasadnici.Rasadnici.Item.ItemData.Item;
 
 import lombok.Data;
 
