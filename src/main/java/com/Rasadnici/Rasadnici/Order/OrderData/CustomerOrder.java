@@ -23,7 +23,7 @@ import lombok.Data;
 public class CustomerOrder extends BaseEntity {
 
     public static enum OrderState {
-        PENDING(0), SHIPPED(1), DONE(2);
+        PENDING(0), CANCELED(1), SHIPPED(2), DONE(3);
 
         private final int value;
 

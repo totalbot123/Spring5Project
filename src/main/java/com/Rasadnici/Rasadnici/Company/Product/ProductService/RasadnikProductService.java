@@ -1,26 +1,45 @@
 package com.Rasadnici.Rasadnici.Company.Product.ProductService;
 
+import java.util.List;
+
+import com.Rasadnici.Rasadnici.Company.Product.ProductDAO.ProductRepository;
+import com.Rasadnici.Rasadnici.Company.Product.ProductData.Product;
+import com.google.common.collect.Lists;
+
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class RasadnikProductService implements ProductService {
 
-    @Override
-    public void addProduct() {
-        // TODO Auto-generated method stub
+    private ProductRepository productRepository;
 
+    @Override
+    public void getProduct(long id) {
+        productRepository.findById(id).get();
     }
 
     @Override
-    public void modifyProduct() {
-        // TODO Auto-generated method stub
-
+    public List<? extends Product> getAllProducts() {
+        Iterable<? extends Product> iterable = productRepository.findAll();
+        return Lists.newArrayList(iterable);
     }
 
     @Override
-    public void deleteProduct() {
-        // TODO Auto-generated method stub
+    public void addProduct(Product product) {
+        productRepository.save(product);
+    }
 
+    @Override
+    public void modifyProduct(Product product) {
+        productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProduct(long id) {
+        productRepository.deleteById(id);
     }
 
 }

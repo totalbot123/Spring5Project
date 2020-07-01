@@ -6,9 +6,9 @@ public interface StoreMaintainingController {
 
     public void getProductList();
 
-    public void showProductDetailPage(int id);
+    public void showProductDetailPage(long id);
 
-    public void deleteProduct(int id);
+    public void deleteProduct(long id);
 
     public void addProduct(Product product);
 

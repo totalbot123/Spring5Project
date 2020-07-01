@@ -1,11 +1,15 @@
 package com.Rasadnici.Rasadnici.Order.OrderService;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+
+import com.Rasadnici.Rasadnici.Order.OrderData.CustomerOrder;
 
 public interface CustomerServingOrderService {
 
-    public void approveCustomerOrder();
+    public List<? extends CustomerOrder> getAllOrders();
 
-    public void declineCustomerOrder();
+    public void approveCustomerOrder(long id);
+
+    public void declineCustomerOrder(long id);
 
 }
