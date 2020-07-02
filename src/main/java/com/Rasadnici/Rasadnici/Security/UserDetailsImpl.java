@@ -27,7 +27,8 @@ public class UserDetailsImpl implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		LinkedList<GrantedAuthority> authorities = new LinkedList<GrantedAuthority>();
-		authorities.push(new SimpleGrantedAuthority("USER"));
+		User user = userRepository.findByUsername(username);
+		authorities.push(new SimpleGrantedAuthority(user.getUserType()));
 		return authorities;
 	}
 

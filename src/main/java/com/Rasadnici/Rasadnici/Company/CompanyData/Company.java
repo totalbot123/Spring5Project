@@ -7,6 +7,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.Rasadnici.Rasadnici.Company.Driver.DriverData.Driver;
+import com.Rasadnici.Rasadnici.Order.OrderData.CustomerOrder;
 import com.Rasadnici.Rasadnici.Security.Data.User;
 
 import lombok.Data;
@@ -27,5 +28,5 @@ public class Company extends User {
     private Set<Driver> drivers;
 
     @OneToOne(mappedBy = "company")
-    private Company company;
+    private CustomerOrder customerOrder;
 }

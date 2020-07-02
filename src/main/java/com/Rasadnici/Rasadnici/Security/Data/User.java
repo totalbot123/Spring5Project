@@ -25,4 +25,7 @@ public class User extends BaseEntity {
 	@Column(columnDefinition = "tinyint(1) default 0")
 	private Boolean active;
 
+	@Column(name = "user_type", columnDefinition = "varchar(255) default 'USER'")
+	private String userType;
+
 }

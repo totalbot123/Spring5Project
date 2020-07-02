@@ -21,7 +21,6 @@ public class WebController {
 
 	@RequestMapping("/index")
 	public ModelAndView getIndex() {
-		userService.findUserById((long) 1);
 		return new ModelAndView("/index.html");
 	}
 
