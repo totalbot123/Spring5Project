@@ -12,6 +12,7 @@ import com.Rasadnici.Rasadnici.Security.DAO.UserRepository;
 import com.Rasadnici.Rasadnici.Security.Data.User;
 import com.Rasadnici.Rasadnici.Company.Driver.DriverData.Driver;
 
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,7 +27,9 @@ public class RasadnikUserService implements UserService {
     }
 
     public User findUser(String username) {
-        return userRepository.findByUsername(username);
+        Optional<User> optUser = userRepository.findByUsername(username);
+        User user = optUser.orElseThrow(() -> new UsernameNotFoundException(username + "is not valid username!"));
+        return user;
     }
 
     public Optional<User> findUserById(Long id) {

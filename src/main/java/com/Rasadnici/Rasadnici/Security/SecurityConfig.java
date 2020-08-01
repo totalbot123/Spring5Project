@@ -20,18 +20,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService);
 	}
 
-	@Override
-	protected void configure(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.authorizeRequests().antMatchers("/admin").hasRole("ADMIN").antMatchers("/user")
-				.hasAnyRole("ADMIN", "USER").antMatchers("/").permitAll().and().formLogin().loginPage("/login")
-				.loginProcessingUrl("/perform_login").defaultSuccessUrl("/index", true);
-		// // .failureUrl("/login.html?error=true")
-		//// .failureHandler(authenticationFailureHandler())
-		// .and().logout()
-		// .logoutUrl("/perform_logout")
-		// .deleteCookies("JSESSIONID")
-		//// .logoutSuccessHandler(logoutSuccessHandler());
-		;
-	}
+	 @Override
+	 protected void configure(HttpSecurity httpSecurity) throws Exception {
+		 httpSecurity
+			 .authorizeRequests()
+			 .antMatchers("/admin").hasRole("ADMIN")
+			 .antMatchers("/user").hasAnyRole("ADMIN", "USER")
+			 .antMatchers("/").permitAll()
+			 .and()
+			 .formLogin();
+	 }
 
 }
